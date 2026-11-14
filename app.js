@@ -11,14 +11,17 @@ async function checkAccountSession() {
       cache: "no-store"
     });
 
+    if (response.status === 401) {
+      createAccountButton.hidden = false;
+      return;
+    }
+
     if (response.ok) {
       const result = await response.json();
-      if (result.user) {
-        createAccountButton.hidden = true;
-      }
+      createAccountButton.hidden = Boolean(result.user);
     }
   } catch {
-    createAccountButton.hidden = false;
+    createAccountButton.hidden = true;
   }
 }
 
