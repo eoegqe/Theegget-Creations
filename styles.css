@@ -1,12 +1,19 @@
-* {
-  box-sizing: border-box;
-}
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap');
 
 :root {
   color-scheme: dark;
-  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  background: #09090b;
-  color: #f5f5f5;
+  --bg: #090909;
+  --surface: #111;
+  --line: #262626;
+  --muted: #858585;
+  --text: #f4f4f4;
+  font-family: 'DM Sans', Arial, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+}
+
+* {
+  box-sizing: border-box;
 }
 
 html,
@@ -18,32 +25,34 @@ body {
 
 body {
   min-height: 100vh;
-  background: radial-gradient(ellipse at center, #19191e 0%, #0d0d10 48%, #09090b 100%);
+  background: var(--bg);
 }
 
 .landing {
   min-height: 100vh;
   display: grid;
   place-items: center;
-  padding: 32px 20px;
+  padding: 28px;
 }
 
 .welcome {
-  width: min(100%, 760px);
+  width: min(100%, 620px);
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 34px;
+  gap: 24px;
+  padding: 42px 30px;
   text-align: center;
+  background: linear-gradient(145deg, #171717, #101010);
+  border: 1px solid var(--line);
+  border-radius: 13px;
 }
 
 h1 {
   margin: 0;
-  color: #fff;
-  font-size: clamp(2.5rem, 8vw, 5.5rem);
-  font-weight: 750;
-  letter-spacing: -0.075em;
-  line-height: 1.04;
+  color: #f4f4f4;
+  font: 600 clamp(27px, 5vw, 38px)/1.15 'Space Grotesk', sans-serif;
+  letter-spacing: -1.3px;
 }
 
 .actions {
@@ -51,59 +60,62 @@ h1 {
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
-  gap: 12px;
+  gap: 10px;
 }
 
 .button {
-  min-height: 48px;
+  min-height: 42px;
   display: inline-flex;
   justify-content: center;
   align-items: center;
-  padding: 0 23px;
+  padding: 0 17px;
   border: 1px solid transparent;
-  border-radius: 10px;
-  color: #fff;
-  font-size: 0.96rem;
-  font-weight: 650;
+  border-radius: 8px;
+  font: 700 12px 'DM Sans', sans-serif;
   text-decoration: none;
-  transition: transform 150ms ease, background 150ms ease, border-color 150ms ease;
+  transition: background .15s, border-color .15s, color .15s;
 }
 
 .button[hidden] {
   display: none;
 }
 
-.button:hover {
-  transform: translateY(-2px);
-}
-
-.button:focus-visible {
-  outline: 3px solid #a5b4fc;
-  outline-offset: 3px;
-}
-
 .button-primary {
-  background: #f5f5f5;
-  color: #111114;
+  background: #f4f4f4;
+  color: #111;
+  border-color: #f4f4f4;
 }
 
 .button-primary:hover {
-  background: #dedee3;
+  background: #fff;
+  border-color: #fff;
 }
 
 .button-secondary {
-  background: rgba(255, 255, 255, 0.06);
-  border-color: rgba(255, 255, 255, 0.18);
+  background: #151515;
+  border-color: #333;
+  color: #ddd;
 }
 
 .button-secondary:hover {
-  background: rgba(255, 255, 255, 0.12);
-  border-color: rgba(255, 255, 255, 0.3);
+  background: #202020;
+  border-color: #555;
+  color: #fff;
+}
+
+.button:focus-visible {
+  outline: 2px solid #aaa;
+  outline-offset: 3px;
 }
 
 @media (max-width: 480px) {
+  .landing {
+    padding: 18px;
+  }
+
   .welcome {
-    gap: 28px;
+    gap: 21px;
+    padding: 34px 20px;
   }
 
   .actions {
@@ -120,7 +132,6 @@ h1 {
   *,
   *::before,
   *::after {
-    scroll-behavior: auto !important;
-    transition-duration: 0.01ms !important;
+    transition-duration: .01ms !important;
   }
 }
