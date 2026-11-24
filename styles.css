@@ -103,9 +103,39 @@ h1 {
   color: #fff;
 }
 
+.button-tc-plus {
+  background: #171717;
+  border-color: #5a4a83;
+  color: #d8c9ff;
+}
+
+.button-tc-plus:hover {
+  background: #241d33;
+  border-color: #8d75c4;
+  color: #fff;
+}
+
 .button:focus-visible {
   outline: 2px solid #aaa;
   outline-offset: 3px;
+}
+
+.error-code {
+  color: #a78bfa;
+  font: 700 clamp(64px, 14vw, 104px)/1 'Space Grotesk', sans-serif;
+  letter-spacing: -5px;
+}
+
+.error-description {
+  max-width: 440px;
+  margin: 0;
+  color: #b5b5b5;
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+.error-actions {
+  margin-top: 4px;
 }
 
 @media (max-width: 480px) {
